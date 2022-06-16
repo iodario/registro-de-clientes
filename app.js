@@ -1,3 +1,4 @@
+//creo 
 const personas = [];
 let formulario = document.getElementById("formulario");
 
@@ -35,7 +36,11 @@ formulario.onsubmit = (e) => {
 
   mostrarPersonas();
 
-  alert("cliente guardado con exito");
+  Swal.fire(
+    'Buen trabajo!',
+    'Has agregado el cliente con éxito',
+    'success'
+  );
 }
 
 const clave_lista_storage = "listaPersonas";
@@ -62,7 +67,6 @@ function guardar_personas(persona_nueva) {
 }
 
 
-
 function mostrarPersonas() {
 
   salida.innerHTML = `
@@ -77,6 +81,7 @@ function mostrarPersonas() {
     </tr>
   </thead>   
     `;
+
 
   //recorrer arreglo storage
   let almacenados = JSON.parse(localStorage.getItem(clave_lista_storage));
@@ -96,44 +101,6 @@ function mostrarPersonas() {
   }
   return salida.innerHTML;
 }
-
-  // let arreglo = localStorage.getItem(clave_lista_storage);
-  // if (arreglo) {
-
-  //   arreglo = JSON.parse(arreglo);
-  //   for (let i = 0; i < arreglo.length; i++) {
-
-  //     let persona = arreglo[i];
-  //     let nueva_persona = Persona.crearPersona(persona);
-  //     console.log(nueva_persona);
-  //     console.log(nueva_persona.nombre);
-
-
-  //   }
-  //   return arreglo;
-  // }
-
-  
-
-
-
-  // for (const persona of personas) {
-  //   let trPersona = document.createElement("div");
-  //   trPersona.innerHTML = `<tbody>
-  //   <tr>
-  //   <th scope="row">El nombre es: ${persona.nombre}</th>
-  //   <td>El apellido es: ${persona.apellido}</td>
-  //   <td>El email es: ${persona.email}</td>
-  //   <td>La edad es: ${persona.edad}</td>
-  //   <td>El dni es: ${persona.dni}</td>
-
-  //   </tr>
-  // `
-  //   //<td>El turno es: ${persona.turno}</td>
-  //   salida.appendChild(trPersona);
-  // }
-  // `</tbody>
-  //   </table>`
 
 const salida = document.createElement("div");
 document.body.appendChild(formulario);
